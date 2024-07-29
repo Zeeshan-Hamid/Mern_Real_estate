@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import './Navbar.scss'
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   return (
     <>
       <nav>
         <div className="left">
-          <a href="/" className="logo">
+          <Link to={"/"} className="logo">
             <img src="/logo.png" alt="" />
             <span>Zeeshan Estate</span>
-          </a>
+          </Link>
           <div className="links">
-            <a href="/">Home</a>
-            <a href="/">About</a>
+            <Link to={"/"}>Home</Link>
+
+            <Link to="/list">Properties</Link>
             <a href="/">Contacts</a>
             <a href="/">Agents</a>
           </div>
@@ -33,9 +35,9 @@ const Navbar = () => {
             />
           </div>
           <div className={open ? "menu active" : "menu"}>
-            <a href="/">Home</a>
-            <a href="/">About</a>
-            <a href="/">Contacts</a>
+            <Link to={"/"}>Home</Link>
+            <Link to={"/list"}>Properties</Link>
+            <a to={"/"}>Contacts</a>
             <a href="/">Agents</a>
             <a href="/">SignIn</a>
             <a href="/">SignUp</a>
@@ -43,9 +45,13 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className={ open ? 'backdrop active' : 'backdrop'} onClick={()=>{setOpen(!open)}}></div>
+      <div
+        className={open ? "backdrop active" : "backdrop"}
+        onClick={() => {
+          setOpen(!open);
+        }}></div>
     </>
   );
-}
+};
 
 export default Navbar

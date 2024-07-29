@@ -28,6 +28,9 @@
              @include lg{
                 font-size: 48px;
             }
+            @include sm{
+                font-size: 36px;
+            }
            }
            .boxes{
             display: flex;
