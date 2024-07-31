@@ -1,28 +1,29 @@
-import { useState } from 'react'
-import './search.scss'
+import { useState } from "react";
+import "./searchBar.scss";
 
-const types = ["Buy", "Rent"]
+const types = ["buy", "rent"];
 
-const SearchBar = () => {
+function SearchBar() {
   const [query, setQuery] = useState({
     type: "buy",
     location: "",
     minPrice: 0,
-    maxPrice: 0
-  })
+    maxPrice: 0,
+  });
 
   const switchType = (val) => {
-    setQuery((prev)=> ({...prev, type: val}))
-  }
+    setQuery((prev) => ({ ...prev, type: val }));
+  };
 
   return (
     <div className="searchBar">
       <div className="type">
-        {types.map((type, index) => (
-          <button key={index}
-            onClick={() => {
-              switchType(type);
-            }} className={query.type === type ? "active" : ""}>
+        {types.map((type) => (
+          <button
+            key={type}
+            onClick={() => switchType(type)}
+            className={query.type === type ? "active" : ""}
+          >
             {type}
           </button>
         ))}
@@ -33,7 +34,7 @@ const SearchBar = () => {
           type="number"
           name="minPrice"
           min={0}
-          max={10000}
+          max={10000000}
           placeholder="Min Price"
         />
         <input
@@ -41,9 +42,9 @@ const SearchBar = () => {
           name="maxPrice"
           min={0}
           max={10000000}
-          placeholder="Max-Price"
+          placeholder="Max Price"
         />
-        <button type="submit">
+        <button>
           <img src="/search.png" alt="" />
         </button>
       </form>
@@ -51,4 +52,4 @@ const SearchBar = () => {
   );
 }
 
-export default SearchBar
+export default SearchBar;

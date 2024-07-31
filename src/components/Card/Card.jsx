@@ -1,7 +1,7 @@
-import "./card.scss";
 import { Link } from "react-router-dom";
+import "./card.scss";
 
-const Card = ({ item }) => {
+function Card({ item }) {
   return (
     <div className="card">
       <Link to={`/${item.id}`} className="imageContainer">
@@ -15,16 +15,16 @@ const Card = ({ item }) => {
           <img src="/pin.png" alt="" />
           <span>{item.address}</span>
         </p>
-        <p className="price">${item.price}</p>
+        <p className="price">$ {item.price}</p>
         <div className="bottom">
           <div className="features">
             <div className="feature">
               <img src="/bed.png" alt="" />
-              <span>{item.bedroom} Bedroom</span>
+              <span>{item.bedroom} bedroom</span>
             </div>
             <div className="feature">
               <img src="/bath.png" alt="" />
-              <span>{item.bathroom} Bathroom</span>
+              <span>{item.bathroom} bathroom</span>
             </div>
           </div>
           <div className="icons">
@@ -39,6 +39,6 @@ const Card = ({ item }) => {
       </div>
     </div>
   );
-};
+}
 
 export default Card;

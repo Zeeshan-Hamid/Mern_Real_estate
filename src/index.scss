@@ -1,34 +1,15 @@
-@import './responsive.scss';
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-a{
-    text-decoration: none;
-    color: inherit;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 body{
-    font-family: 'Lato', sans-serif;
-    @include sm{
-        overflow: hidden;
-    }
-    &::-webkit-scrollbar {
-    width: 10px; // Set the width of the scrollbar
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1; // Light gray background for the scrollbar track
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #c1c1c1; // Light gray color for the scrollbar thumb
-    border-radius: 4px; // Round the corners of the scrollbar thumb
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #a1a1a1; // Darker gray when hovering over the scrollbar thumb
-  }
+  font-family: "Lato", sans-serif;
+  overflow: hidden;
 }

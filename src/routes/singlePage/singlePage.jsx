@@ -1,8 +1,9 @@
 import "./singlePage.scss";
-import Slider from "../../components/Slider/Slider";
-import Map from "../../components/Map/Map";
-import { singlePostData, userData } from "../../lib/dummy-data";
-const SignlePage = () => {
+import Slider from "../../components/slider/Slider";
+import Map from "../../components/map/Map";
+import { singlePostData, userData } from "../../lib/dummydata";
+
+function SinglePage() {
   return (
     <div className="singlePage">
       <div className="details">
@@ -16,7 +17,7 @@ const SignlePage = () => {
                   <img src="/pin.png" alt="" />
                   <span>{singlePostData.address}</span>
                 </div>
-                <div className="price">${singlePostData.price}</div>
+                <div className="price">$ {singlePostData.price}</div>
               </div>
               <div className="user">
                 <img src={userData.img} alt="" />
@@ -29,13 +30,13 @@ const SignlePage = () => {
       </div>
       <div className="features">
         <div className="wrapper">
-          <div className="title">General</div>
-          <div className="listVerticle">
+          <p className="title">General</p>
+          <div className="listVertical">
             <div className="feature">
               <img src="/utility.png" alt="" />
               <div className="featureText">
                 <span>Utilities</span>
-                <p>Renter is Responsible</p>
+                <p>Renter is responsible</p>
               </div>
             </div>
             <div className="feature">
@@ -49,35 +50,32 @@ const SignlePage = () => {
               <img src="/fee.png" alt="" />
               <div className="featureText">
                 <span>Property Fees</span>
-                <p>Must have the rent in total hosehold income</p>
+                <p>Must have 3x the rent in total household income</p>
               </div>
             </div>
           </div>
-          <div className="title">Sizes</div>
+          <p className="title">Sizes</p>
           <div className="sizes">
             <div className="size">
               <img src="/size.png" alt="" />
-              <span>88sq ft</span>
+              <span>80 sqft</span>
             </div>
-
             <div className="size">
               <img src="/bed.png" alt="" />
-              <span>2 Beds</span>
+              <span>2 beds</span>
             </div>
-
             <div className="size">
               <img src="/bath.png" alt="" />
-              <span>1 Bathroom</span>
+              <span>1 bathroom</span>
             </div>
           </div>
-
-          <div className="title">Nearby Places</div>
+          <p className="title">Nearby Places</p>
           <div className="listHorizontal">
             <div className="feature">
-              <img src="/utility.png" alt="" />
+              <img src="/school.png" alt="" />
               <div className="featureText">
                 <span>School</span>
-                <p>200m away</p>
+                <p>250m away</p>
               </div>
             </div>
             <div className="feature">
@@ -91,11 +89,11 @@ const SignlePage = () => {
               <img src="/fee.png" alt="" />
               <div className="featureText">
                 <span>Restaurant</span>
-                <p>10m away</p>
+                <p>200m away</p>
               </div>
             </div>
           </div>
-          <div className="title">Location</div>
+          <p className="title">Location</p>
           <div className="mapContainer">
             <Map items={[singlePostData]} />
           </div>
@@ -106,13 +104,13 @@ const SignlePage = () => {
             </button>
             <button>
               <img src="/save.png" alt="" />
-              Save Place
+              Save the Place
             </button>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default SignlePage;
+export default SinglePage;

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./slider.scss";
 
-const Slider = ({ images }) => {
+function Slider({ images }) {
   const [imageIndex, setImageIndex] = useState(null);
 
-  const changeSLides = (direction) => {
+  const changeSlide = (direction) => {
     if (direction === "left") {
       if (imageIndex === 0) {
         setImageIndex(images.length - 1);
@@ -24,27 +24,14 @@ const Slider = ({ images }) => {
     <div className="slider">
       {imageIndex !== null && (
         <div className="fullSlider">
-          <div className="arrow">
-            <img
-              src="/arrow.png"
-              alt=""
-              onClick={() => {
-                changeSLides("left");
-              }}
-            />
+          <div className="arrow" onClick={() => changeSlide("left")}>
+            <img src="/arrow.png" alt="" />
           </div>
           <div className="imgContainer">
             <img src={images[imageIndex]} alt="" />
           </div>
-          <div className="arrow">
-            <img
-              src="/arrow.png"
-              className="right"
-              onClick={() => {
-                changeSLides("right");
-              }}
-              alt=""
-            />
+          <div className="arrow" onClick={() => changeSlide("right")}>
+            <img src="/arrow.png" className="right" alt="" />
           </div>
           <div className="close" onClick={() => setImageIndex(null)}>
             X
@@ -52,28 +39,20 @@ const Slider = ({ images }) => {
         </div>
       )}
       <div className="bigImage">
-        <img
-          src={images[0]}
-          alt=""
-          onClick={() => {
-            setImageIndex(0);
-          }}
-        />
+        <img src={images[0]} alt="" onClick={() => setImageIndex(0)} />
       </div>
       <div className="smallImages">
         {images.slice(1).map((image, index) => (
           <img
             src={image}
-            key={index}
             alt=""
-            onClick={() => {
-              setImageIndex(index + 1);
-            }}
+            key={index}
+            onClick={() => setImageIndex(index + 1)}
           />
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default Slider;
