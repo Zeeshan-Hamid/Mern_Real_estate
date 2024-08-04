@@ -88,6 +88,10 @@ nav {
         cursor: pointer;
         border: none;
         position: relative;
+
+        @include lg{
+          cursor: pointer;
+        }
         
         .notification{
           position: absolute;
