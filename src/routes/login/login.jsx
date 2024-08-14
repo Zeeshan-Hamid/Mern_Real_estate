@@ -6,29 +6,30 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 
 function Login() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const { updateUser } = useContext(AuthContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         "http://localhost:8800/api/auth/login",
-        {
-          email,
-          password,
-        },
+        { email, password },
         { withCredentials: true }
       );
-      updateUser(response.data)
-      Navigate("/");
+      if (response.data) {
+        updateUser(response.data);
+        navigate("/");
+      }
     } catch (error) {
       setError(true);
       console.log(error);
     }
   };
+
   return (
     <div className="login">
       <div className="formContainer">
@@ -49,7 +50,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button>Login</button>
-          <Link to="/register">{"Don't"} you have an account?</Link>
+          <Link to="/register">{"Don't have an account?"}</Link>
           {error && <span>Couldn't Login. Please try again</span>}
         </form>
       </div>
