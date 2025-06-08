@@ -1,8 +1,8 @@
 import { listData } from "../../lib/dummydata";
 import "./listPage.scss";
-import Filter from "../../components/filter/Filter"
-import Card from "../../components/card/Card"
-import Map from "../../components/map/Map";
+import Filter from "../../components/Filter/Filter"
+import Card from "../../components/Card/Card"
+import Map from "../../components/Map/Map";
 import { useLoaderData } from "react-router-dom";
 
 function ListPage() {

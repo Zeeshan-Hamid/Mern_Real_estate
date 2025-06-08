@@ -1,5 +1,5 @@
 import './list.scss'
-import Card from"../card/Card"
+import Card from "../Card/Card.jsx"
 import {listData} from"../../lib/dummydata"
 
 function List(){
